@@ -17,6 +17,7 @@ class NumberExtension extends \Twig_Extension
         return array(
             'number'    => new \Twig_Filter_Method($this, 'number'),
             'convert'   => new \Twig_Filter_Method($this, 'convert'),
+            'readable'  => new \Twig_Filter_Method($this, 'readable'),
         );
     }
 
@@ -25,9 +26,14 @@ class NumberExtension extends \Twig_Extension
         return $this->helper->formatNumber($number, $decimals);
     }
     
-    public function convert($number, $multiple, $base = 10)
+    public function convert($number, $multiple, $base = 1000)
     {
         return $this->helper->convert($number, $multiple, $base);
+    }
+    
+    public function readable($number, $base = 1000)
+    {
+        return $this->helper->readable($number, $base);
     }
 
     public function getName()
