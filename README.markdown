@@ -70,7 +70,6 @@ See [`PHP_INT_MAX` and `PHP_INT_SIZE`][1].
 
 ## TODO
 
-* Tests/
 * Smart conversion (e.g. `{{ 1234 | convert('auto') | number }} {{ 1234 | unit }}` will output 1,2 k) ~ok
 * Adapt number formatting to different locales (e.g. `123 456,78 => 123,456.78`) ; See also localeconv()
 * Convertion between different units (decimal/binary/hexa, bit/octet, ...)
