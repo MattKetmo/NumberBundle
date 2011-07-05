@@ -6,7 +6,7 @@ use Symfony\Component\Templating\Helper\Helper;
 
 class NumberHelper extends Helper
 {
-    static $units = array('k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
+    static $units = array(0, 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y');
     
     public function formatNumber($number, $decimals = 0)
     {
@@ -23,32 +23,24 @@ class NumberHelper extends Helper
             throw new \InvalidArgumentException(sprintf('The unit \'%s\' is not supported', $unit));
         }
 
-        return (float) $number / pow($base, $exp + 1);
+        return (float) $number / pow($base, $exp);
     }
     
     public function readable($number, $base = 1000)
     {
         $exp = $this->getBestExposant($number, $base);
-        
-        if ($exp == -1) {
-            return $number;
-        }
-        
-        $num = (float) $number / pow($base, $exp + 1);
+        $num = $number / pow($base, $exp);
         
         return sprintf('%f %s', $num, NumberHelper::$units[$exp]);
     }
     
     protected function getBestExposant($number, $base = 1000)
     {
-        $exp = -1;
-        
-        while ($number >= $base) {
-            $exp++;
-            $number /= $base;
+        if (!empty($number)) {
+            return floor(log($number) / log($base));
+        } else {
+            return 0;
         }
-        
-        return $exp;
     }
     
     public function getName()
