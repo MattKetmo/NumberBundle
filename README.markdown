@@ -4,6 +4,8 @@ Twig helpers allow to format numbers (see PHP number_format() function), and pri
 
 ## Installation
 
+### Old style
+
 Add it to your Symfony Project:
 
 ```
@@ -25,7 +27,15 @@ $loader->registerNamespaces(array(
 ));
 ```
 
-Add it to your app/AppKernel.php:
+### Composer style
+
+Install by composer:
+
+```sh
+php composer.php require mattketmo/number-bundle:*
+```
+
+After installation add it to your app/AppKernel.php:
 
 ```php
 public function registerBundles()
@@ -43,6 +53,7 @@ public function registerBundles()
     // ...
 }
 ```
+
 
 ## Usage
 
@@ -62,7 +73,7 @@ public function registerBundles()
 {{ 85455966208.0 | readable }}o                             // 85.455966 Go
 ```
 
-Notice that without decimal value, 85455966208 is considered as an integer by Twig, which is too large for PHP 
+Notice that without decimal value, 85455966208 is considered as an integer by Twig, which is too large for PHP
 (maximum is 2147483647 for 32-bit builds of PHP, and 9223372036854775807 for 64-bit builds).
 See [`PHP_INT_MAX` and `PHP_INT_SIZE`][1].
 
