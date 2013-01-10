@@ -1,6 +1,6 @@
 {
     "name": "mattketmo/number-bundle",
-    "type": "library",
+    "type": "symfony-bundle",
     "description": "Twig helpers allow to format numbers (see PHP number_format() function), and print size in human readable format (kilo, mega, etc...).",
     "keywords": ["formatting", "number", "twig", "extension", "template"],
     "license": "MIT",
