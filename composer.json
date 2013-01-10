@@ -13,10 +13,10 @@
     ],
     "autoload": {
         "psr-0": {
-            "MattKetmo\\Bundle\\NumberBundle": ""
+            "Ketmo\\Bundle\\NumberBundle": ""
         }
     },
-    "target-dir": "MattKetmo/Bundle/NumberBundle",
+    "target-dir": "Ketmo/Bundle/NumberBundle",
     "require": {
         "symfony/symfony": ">=2.0,<2.3-dev"
     }
